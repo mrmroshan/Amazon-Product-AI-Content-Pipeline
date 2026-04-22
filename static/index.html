@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Content Pipeline Staging</title>
+    <!-- Bootstrap 5 CSS via CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body class="dark-theme">
+
+<div class="container py-5">
+    <div class="header-section text-center mb-5">
+        <h1 class="display-4 fw-bold gradient-text"><i class="fas fa-robot"></i> Content Pipeline Staging</h1>
+        <p class="lead text-muted">Automated Amazon Affiliate Short-Form Workflow</p>
+    </div>
+
+    <!-- Trigger Section -->
+    <div class="glass-card p-4 mb-5">
+        <h4><i class="fas fa-play-circle text-primary"></i> Trigger New Job</h4>
+        <div class="input-group mt-3">
+            <input type="text" id="asinInput" class="form-control custom-input" placeholder="Enter Amazon ASIN (e.g., B0CFN6GRTH)" aria-label="ASIN">
+            <button class="btn btn-primary px-4" type="button" id="startBtn">Build Content</button>
+        </div>
+        <div id="triggerAlert" class="mt-2 text-success" style="display:none;"></div>
+    </div>
+
+    <!-- Jobs Table Section -->
+    <div class="glass-card p-4">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h4><i class="fas fa-list text-info"></i> Pipeline Queue</h4>
+            <button class="btn btn-sm btn-outline-light" onclick="fetchJobs()"><i class="fas fa-sync-alt p-1"></i> Refresh</button>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-dark table-hover custom-table">
+                <thead>
+                    <tr>
+                        <th scope="col">ASIN</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Last Updated</th>
+                        <th scope="col">Video / QA Action</th>
+                    </tr>
+                </thead>
+                <tbody id="jobsTableBody">
+                    <!-- Javascript populates rows here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+<!-- Error Modal -->
+<div class="modal fade" id="errorModal" tabindex="-1" aria-labelledby="errorModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-scrollable">
+    <div class="modal-content text-dark" style="background: var(--bg-color); border: 1px solid var(--border-color);">
+      <div class="modal-header border-bottom-0">
+        <h5 class="modal-title text-light" id="errorModalLabel"><i class="fas fa-exclamation-triangle text-danger"></i> Job Failure trace</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <pre id="errorModalText" class="p-3 text-danger" style="background: rgba(0,0,0,0.3); border-radius: 8px; white-space: pre-wrap; word-wrap: break-word;"></pre>
+      </div>
+      <div class="modal-footer border-top-0">
+        <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" onclick="copyErrorToClipboard()"><i class="fas fa-copy"></i> Copy Error</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Scene Review Modal -->
+<div class="modal fade" id="reviewModal" tabindex="-1" aria-labelledby="reviewModalLabel" aria-hidden="true" data-bs-backdrop="static">
+  <div class="modal-dialog modal-xl modal-dialog-scrollable">
+    <div class="modal-content text-light" style="background: var(--bg-color); border: 1px solid var(--border-color);">
+      <div class="modal-header border-bottom-0">
+        <h5 class="modal-title" id="reviewModalLabel"><i class="fas fa-images text-info"></i> Approve Visuals for <span id="reviewAsinBadge" class="badge bg-secondary">...</span></h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+         <!-- Product Head -->
+         <div class="d-flex align-items-center mb-4 p-3 glass-card">
+            <img id="reviewBaseImage" src="" alt="Product" style="max-height: 80px; object-fit: contain; border-radius: 8px;" class="me-3">
+            <div>
+               <h6 class="mb-0 text-muted">Base Product Reference</h6>
+               <small>This source image is used to seed the Image-to-Image composition.</small>
+            </div>
+         </div>
+         <div id="scenesContainer">
+             <!-- Javascript populates scenes here -->
+         </div>
+      </div>
+      <div class="modal-footer border-top-0">
+        <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-success" onclick="approveSelectedImages()"><i class="fas fa-check"></i> Approve & Render</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/static/main.js"></script>
+</body>
+</html>

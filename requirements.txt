@@ -1,0 +1,9 @@
+# Base utilities
+python-dotenv==1.0.1
+requests==2.31.0
+
+# Future Phases / Week 2
+crewai
+langchain-google-genai
+fastapi
+uvicorn

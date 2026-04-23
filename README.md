@@ -111,5 +111,10 @@ python start_pipeline.py
 - Always ensure the `.env` file is never committed.
 - This repository contains a pre-configured `.gitignore` to prevent sensitive credentials and large environment folders (`venv`) from being published.
 
+## 👨‍💻 Author
+
+**Roshan**
+*This project was developed with the assistance of AI tools.*
+
 ## 📄 License
 MIT License

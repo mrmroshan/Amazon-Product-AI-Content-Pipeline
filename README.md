@@ -113,7 +113,7 @@ python start_pipeline.py
 
 ## 👨‍💻 Author
 
-**Roshan**
+**Roshan Ruzaik**
 *This project was developed with the assistance of AI tools.*
 
 ## 📄 License

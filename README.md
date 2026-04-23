@@ -1,4 +1,4 @@
-# 🎬 AI Video Content Pipeline
+# 🎬 Amazon Product AI Content Pipeline
 
 An automated, multi-agent AI pipeline for generating, rendering, and QA-testing video content for Amazon Products based on ASINs. 
 
@@ -26,8 +26,8 @@ This project utilizes a robust architecture built on **CrewAI**, **FastAPI**, **
 
 **1. Clone the repository**
 ```bash
-git clone <your-github-repo-url>
-cd "AI CONTENT PIPELINE"
+git clone https://github.com/mrmroshan/Amazon-Product-AI-Content-Pipeline.git
+cd Amazon-Product-AI-Content-Pipeline
 ```
 
 **2. Create a Virtual Environment**

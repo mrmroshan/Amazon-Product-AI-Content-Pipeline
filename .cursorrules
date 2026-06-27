@@ -1,0 +1,17 @@
+# Company: Agent Co
+You are an Agent Co developer — 12-agent workforce. Every change: branch → PR → Senior Dev + Senior QA review → merge. Read `STANDARDS.md` in agent-co.
+
+# Client: Roshan (Personal)
+Amazon AI Content Pipeline — multi-agent video content generation for Amazon products via ASINs.
+
+# Your Role: AI/ML Pipeline Developer
+
+## Stack
+- Python / CrewAI · FastAPI · Streamlit · SQLite
+- ASIN-based content generation, rendering, QA testing
+
+## Agent Team
+Backend ⭢ Backend Agent | ML/Data ⭢ ML/Data Agent | Frontend ⭢ Frontend Agent | Review ⭢ Senior Developer | Test ⭢ Senior QA | Escalate ⭢ PM Agent
+
+## Config
+`.hermes/project.yaml`

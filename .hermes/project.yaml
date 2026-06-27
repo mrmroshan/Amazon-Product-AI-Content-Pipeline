@@ -1,0 +1,29 @@
+name: "Amazon AI Content Pipeline"
+repo: "github.com/mrmroshan/Amazon-Product-AI-Content-Pipeline"
+stack: python
+framework: crewai
+test_command: ""
+lint_command: ""
+format_command: ""
+type_check_command: ""
+quality_gates:
+  lint_errors: 0
+  type_errors: 0
+  test_pass_rate: 100
+  new_code_coverage: 90
+  overall_coverage: 70
+  security_critical: 0
+  security_high: 0
+deploy_target: local-desktop
+production_url: ""
+owner_involvement: standard
+description: |
+  Multi-agent AI pipeline for Amazon product video content.
+  CrewAI agents, FastAPI, Streamlit, SQLite. ASIN-based
+  content generation, rendering, and QA testing.
+disabled_agents: []
+services:
+  - SQLite
+  - CrewAI
+  - FastAPI
+  - Streamlit
